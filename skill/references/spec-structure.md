@@ -22,14 +22,14 @@ Template:
 
 ## 核心原则
 
-List 3-5 decision principles. Each principle should explain a rule, not a slogan. Prefer bilingual labels only when the English term helps align with platform language.
+List the component's confirmed principles. For base components, the principles are already defined by the component principle library: quote the exact principle labels instead of inventing new ones. You may add a short "规范落点" or explanation under each principle, but do not rename, merge, split, or replace confirmed principle terms.
 
 ```markdown
 ## 核心原则
 
-- **识别性（Recognition）**：组件应易于识别，并与周围内容形成清晰区分。
-- **可操作性（Operability）**：组件应支持触控、鼠标、键盘和辅助设备，并提供足够容错。
-- **状态反馈（State Feedback）**：组件应在交互过程中提供稳定、可信赖的反馈。
+- **原则词条 1**：引用已确认原则原文；补充本规范中的落点。
+- **原则词条 2**：引用已确认原则原文；补充本规范中的落点。
+- **原则词条 3**：引用已确认原则原文；补充本规范中的落点。
 ```
 
 ## 层级与类型
