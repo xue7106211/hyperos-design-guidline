@@ -1,118 +1,208 @@
 # HyperOS 设计规范文档结构参考
 
-Use this as a menu, not a mandatory checklist. Select sections according to the user's artifact and scenario.
+Use this as a menu, not a mandatory checklist. Select sections according to the user's artifact and scenario. For component specs, prefer the Button-style structure: first explain definition and role, then principles, hierarchy/type system, interaction states, usage guidance, per-variant rules, specifications, responsive behavior, multi-device guidance, implementation/QA, and changelog.
 
 ## 概述
 
-Explain what the component, pattern, or rule is; what user problem it solves; and where it appears in HyperOS.
+Explain what the component, pattern, or rule is; what user problem it solves; and where it appears in HyperOS. For component specs, include core attributes so readers understand what can vary.
 
 Template:
 
 ```markdown
 ## 概述
 
-本规范定义「对象名称」在「场景」中的使用方式，覆盖结构、状态、交互、视觉与实现约束，帮助设计、研发与 QA 在 HyperOS 场景下保持一致。
+「对象名称」是一种用于「用户任务」的「组件/模式」。它通过「关键能力」帮助用户在 HyperOS 中完成「目标」。
+
+### 核心属性
+
+- **样式（Style）**：说明视觉形态、尺寸、颜色、材质或层级如何表达含义。
+- **内容（Content）**：说明文本、图标、容器、媒体或业务内容如何传达任务。
+- **角色（Role）**：说明组件在系统中的行为角色，例如行为触发、信息承载、状态反馈、上下文切换或并行任务。
 ```
 
-## 适用范围
+## 核心原则
 
-Define where the spec applies and where it does not. Include platform, device, app module, component family, or screen mode when known.
+List 3-5 decision principles. Each principle should explain a rule, not a slogan. Prefer bilingual labels only when the English term helps align with platform language.
 
 ```markdown
-| 范围 | 说明 |
-| --- | --- |
-| 适用 |  |
-| 不适用 |  |
-| 依赖 |  |
+## 核心原则
+
+- **识别性（Recognition）**：组件应易于识别，并与周围内容形成清晰区分。
+- **可操作性（Operability）**：组件应支持触控、鼠标、键盘和辅助设备，并提供足够容错。
+- **状态反馈（State Feedback）**：组件应在交互过程中提供稳定、可信赖的反馈。
 ```
 
-## 设计原则
+## 层级与类型
 
-List 3-5 principles. Each principle should explain a decision rule, not a slogan.
+Use this for emphasis levels, component families, variants, and decision matrices. It should answer: which type should be used in which priority and scenario?
 
 ```markdown
-| 原则 | 说明 |
-| --- | --- |
-| 稳定优先 | 保持关键操作位置和反馈一致，降低跨场景迁移成本。 |
+## 层级与类型
+
+| 类型 | 层级 / 关系 | 用途 | 典型场景 | 关键约束 |
+| --- | --- | --- | --- | --- |
+|  | 高 / 中 / 低 或 模态 / 非模态 |  |  |  |
+```
+
+Optional subsections:
+
+```markdown
+### 层级
+
+### 类型
+
+### 类型选择规则
 ```
 
 ## 结构与组成
 
-Describe anatomy: container, icon, label, value, affordance, helper text, status indicator, action area, etc. Use this section to map old OS3 naming to new HyperOS naming if needed.
+Describe anatomy: container, affordance, title, content, action area, drag handle, mask, icon, label, value, helper text, status indicator, etc. Use this section to map old OS3 naming to new HyperOS naming if needed.
 
 ```markdown
+## 结构与组成
+
 | 元素 | 必需 | 说明 |
 | --- | --- | --- |
 | 容器 | 是 | 承载主体内容和交互热区。 |
 ```
 
-## 布局规则
+## 交互与状态
 
-Document hierarchy, alignment, spacing, density, truncation, and responsive behavior. Use token placeholders if exact values are unknown.
-
-```markdown
-| 项目 | 规则 |
-| --- | --- |
-| 对齐 | 主文本与图标视觉中心对齐。 |
-| 间距 | 使用 `{space.*}` token；具体值待接入设计系统。 |
-```
-
-## 状态与变体
-
-Use a matrix for default, pressed, focused, selected, disabled, loading, error, success, expanded, collapsed, etc. Include only relevant states.
+Describe input methods, gestures, state transitions, tap/click area, keyboard/focus, feedback, and conflict resolution. Use state matrices for default, hovered, pressed, focused, selected, disabled, loading, error, expanded, collapsed, hidden, etc.
 
 ```markdown
+## 交互与状态
+
 | 状态 | 触发条件 | 视觉变化 | 行为规则 |
 | --- | --- | --- | --- |
 | 默认 | 初始可用 | 使用默认容器与文字层级 | 可点击或可聚焦 |
 ```
 
-## 交互行为
-
-Describe input methods, gestures, tap/click area, keyboard/focus, feedback, transitions, and conflict resolution.
+Optional subsections:
 
 ```markdown
-| 行为 | 规则 |
-| --- | --- |
-| 点击 | 命中热区后触发主操作，并给出即时反馈。 |
-| 长按 | 仅在场景需要二级操作时启用。 |
+### 状态矩阵
+
+### 手势与输入
+
+### 状态切换规则
+```
+
+## 使用指南
+
+Document practical guidance with Do / Don't, common scenarios, and component selection rules. This section should help designers avoid misuse.
+
+```markdown
+## 使用指南
+
+### 应做（Do）
+
+- 应在「场景」中使用「类型」，因为「原因」。
+
+### 不应做（Don't）
+
+- 不应在「场景」中使用「类型」，因为「风险」。
+```
+
+## 变体详解
+
+Use this when a component has multiple variants. Each variant should include purpose, common scenarios, layout, content rules, and constraints. Do not force this section for simple one-variant patterns.
+
+```markdown
+## 变体详解
+
+### 变体名称
+
+说明此变体解决什么问题，何时使用。
+
+#### 常见使用场景
+
+#### 布局
+
+#### 内容规则
+
+#### 约束
+```
+
+## 规格
+
+Document color, typography, layout, size, spacing, radius, elevation, hit area, and visual tokens. Do not invent final token names if missing; use placeholders.
+
+```markdown
+## 规格
+
+### 色彩
+
+| 属性 | Token / 规则 | 备注 |
+| --- | --- | --- |
+| 主文本 | `{color.text.primary}` | 待与 HyperOS token 对齐 |
+
+### 布局
+
+### 尺寸
+
+### 间距
+
+### 圆角
+
+### 热区
 ```
 
 ## 内容与文案
 
-Clarify label length, terminology, empty/error messages, localization, units, and dynamic content.
-
-## 视觉规范
-
-Cover color roles, typography roles, elevation, shape, icons, opacity, and contrast. Do not invent final token names if missing.
-
-```markdown
-| 属性 | Token / 规则 | 备注 |
-| --- | --- | --- |
-| 主文本 | `{color.text.primary}` | 待与 HyperOS token 对齐 |
-```
+Clarify label length, terminology, empty/error messages, localization, units, truncation, and dynamic content. If content rules are better placed inside each variant, keep this section short or omit it.
 
 ## 动效规范
 
-Define when motion exists, what changes, duration/easing if known, and when to reduce motion.
+Define when motion exists, what changes, duration/easing if known, state transitions, gesture follow, and reduced-motion behavior.
+
+## 响应式变化规则
+
+Use for width/height behavior, parent container changes, orientation, keyboard, split screen, compact/regular density, and layout rearrangement. Prefer per-variant responsive rules when variants differ.
+
+```markdown
+## 响应式变化规则
+
+### 变体名称
+
+#### 高度规则
+
+#### 宽度规则
+
+#### 位置规则
+
+#### 多项排布
+```
+
+## 多端设计指南
+
+Use for phone, foldable, tablet, wearable, desktop, car, TV, or other terminals. Focus on interaction mode, viewing distance, input device, and platform constraints.
+
+```markdown
+## 多端设计指南
+
+| 终端 | 规则 |
+| --- | --- |
+| 手机 |  |
+| 折叠屏 |  |
+| 平板 |  |
+```
 
 ## 无障碍与可用性
 
-Include focus order, semantic role, screen reader label, contrast, touch target, keyboard operation, and reduced-motion behavior.
-
-## 适配与响应式
-
-Use for phone/tablet/foldable/desktop, portrait/landscape, compact/regular density, and dark mode.
+Include focus order, semantic role, screen reader label, contrast, touch target, keyboard operation, large text, reduced motion, and haptic/audio alternatives.
 
 ## 边界场景
 
-Document empty, loading, offline, permission denied, long text, extreme values, nested usage, and conflicting states.
+Document empty, loading, offline, permission denied, long text, extreme values, nested usage, conflicting states, IME, and interrupted tasks.
 
 ## 实现说明
 
-Give engineering-facing constraints without over-specifying framework details unless provided.
+Give engineering-facing constraints without over-specifying framework details unless provided. Use implementation names only when the user provides them or they are part of the platform contract.
 
 ```markdown
+## 实现说明
+
 | 项目 | 说明 |
 | --- | --- |
 | 状态来源 | 由业务状态控制；组件不应自行推断 selected 与 disabled 的冲突。 |
@@ -120,9 +210,11 @@ Give engineering-facing constraints without over-specifying framework details un
 
 ## QA 检查清单
 
-Write verifiable checks.
+Write verifiable checks for type selection, state, layout, responsive behavior, content, accessibility, and implementation constraints.
 
 ```markdown
+## QA 检查清单
+
 - [ ] 默认、按下、禁用、选中等状态与规范一致。
 - [ ] 长文本、空数据、异常数据不会破坏布局。
 - [ ] 深色模式和浅色模式均满足可读性要求。
@@ -133,6 +225,8 @@ Write verifiable checks.
 Use when updating legacy specs.
 
 ```markdown
+## 从 OS3 迁移
+
 | OS3 规则 | HyperOS 处理 | 原因 |
 | --- | --- | --- |
 |  | 保留 / 调整 / 新增 / 废弃 |  |
@@ -141,3 +235,15 @@ Use when updating legacy specs.
 ## 待确认
 
 Collect unresolved inputs that should be confirmed by design system, product, engineering, or QA owners.
+
+## 更改日志
+
+Use for versioned specs. Keep entries short and traceable.
+
+```markdown
+## 更改日志
+
+| 版本 | 日期 | 变更 |
+| --- | --- | --- |
+| V1 | YYYY-MM-DD | 初版。 |
+```
