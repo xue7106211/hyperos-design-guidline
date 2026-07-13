@@ -1,6 +1,6 @@
 # HyperOS 设计规范文档结构参考
 
-Use this as a menu, not a mandatory checklist. Select sections according to the user's artifact and scenario. For component specs, prefer the Button-style structure: first explain definition and role, then principles, relationship/type system, interaction states, usage guidance, per-variant rules, specifications, responsive behavior, multi-device guidance, implementation/QA, and changelog.
+Use this as a menu, not a mandatory checklist. Select sections according to the user's artifact and scenario. For component specs, prefer the Button-style structure: first explain definition and role, then principles, type system, interaction states, usage guidance, per-variant rules, specifications, responsive behavior, multi-device guidance, implementation/QA, and changelog.
 
 
 ## 标题编号规则
@@ -32,14 +32,14 @@ List the component's confirmed principles. For base components, the principles a
 - **原则词条 3**：引用已确认原则原文；补充本规范中的落点。
 ```
 
-## 关系与类型
+## 类型
 
 Use this for emphasis levels, component families, variants, and decision matrices. It should answer: which type should be used in which priority and scenario?
 
 ```markdown
-## 关系与类型
+## 类型
 
-| 类型 | 关系 | 用途 | 典型场景 | 关键约束 |
+| 类型 | 用途 | 典型场景 | 关键约束 |
 | --- | --- | --- | --- | --- |
 |  | 高 / 中 / 低 或 模态 / 非模态 |  |  |  |
 ```
