@@ -2,9 +2,14 @@
 
 Use this as a menu, not a mandatory checklist. Select sections according to the user's artifact and scenario. For component specs, prefer the Button-style structure: first explain definition and role, then principles, hierarchy/type system, interaction states, usage guidance, per-variant rules, specifications, responsive behavior, multi-device guidance, implementation/QA, and changelog.
 
+
+## 标题编号规则
+
+规范正文一级章节使用中文数字编号，如 `## 一、概述`；二级章节使用阿拉伯数字编号，如 `### 3.1、类型选择规则`。章节编号应随最终文档结构连续调整，删除章节时同步重排编号。
+
 ## 概述
 
-Explain what the component, pattern, or rule is; what user problem it solves; and where it appears in HyperOS. For component specs, include core attributes so readers understand what can vary.
+Explain what the component, pattern, or rule is; what user problem it solves; and where it appears in HyperOS. For component specs, keep the overview focused on definition, user problem, and where it appears; avoid duplicating later structure/type sections.
 
 Template:
 
@@ -13,11 +18,6 @@ Template:
 
 「对象名称」是一种用于「用户任务」的「组件/模式」。它通过「关键能力」帮助用户在 HyperOS 中完成「目标」。
 
-### 核心属性
-
-- **样式（Style）**：说明视觉形态、尺寸、颜色、材质或层级如何表达含义。
-- **内容（Content）**：说明文本、图标、容器、媒体或业务内容如何传达任务。
-- **角色（Role）**：说明组件在系统中的行为角色，例如行为触发、信息承载、状态反馈、上下文切换或并行任务。
 ```
 
 ## 核心原则
