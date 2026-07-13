@@ -156,56 +156,28 @@ Clarify label length, terminology, empty/error messages, localization, units, tr
 
 Define when motion exists, what changes, duration/easing if known, state transitions, gesture follow, and reduced-motion behavior.
 
-## 响应式变化规则
-
-Use for width/height behavior, parent container changes, orientation, keyboard, split screen, compact/regular density, and layout rearrangement. Prefer per-variant responsive rules when variants differ.
-
-```markdown
-## 响应式变化规则
-
-### 变体名称
-
-#### 高度规则
-
-#### 宽度规则
-
-#### 位置规则
-
-#### 多项排布
-```
-
 ## 多端设计指南
 
-Use for phone, foldable, tablet, wearable, desktop, car, TV, or other terminals. Focus on interaction mode, viewing distance, input device, and platform constraints.
+Use for width/height behavior, parent container changes, orientation, keyboard, split screen, compact/regular density, layout rearrangement, and terminal-specific guidance such as phone, foldable, tablet, wearable, desktop, car, TV, or other terminals. Focus on interaction mode, viewing distance, input device, and platform constraints.
 
 ```markdown
-## 多端设计指南
+## 十一、多端设计指南
+
+### 11.1、高度规则
+
+### 11.2、宽度规则
+
+### 11.3、位置规则
+
+### 11.4、多项排布
+
+### 11.5、多端规则
 
 | 终端 | 规则 |
 | --- | --- |
 | 手机 |  |
 | 折叠屏 |  |
 | 平板 |  |
-```
-
-## 无障碍与可用性
-
-Include focus order, semantic role, screen reader label, contrast, touch target, keyboard operation, large text, reduced motion, and haptic/audio alternatives.
-
-## 边界场景
-
-Document empty, loading, offline, permission denied, long text, extreme values, nested usage, conflicting states, IME, and interrupted tasks.
-
-## 实现说明
-
-Give engineering-facing constraints without over-specifying framework details unless provided. Use implementation names only when the user provides them or they are part of the platform contract.
-
-```markdown
-## 实现说明
-
-| 项目 | 说明 |
-| --- | --- |
-| 状态来源 | 由业务状态控制；组件不应自行推断 selected 与 disabled 的冲突。 |
 ```
 
 ## QA 检查清单
