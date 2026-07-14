@@ -1,4 +1,4 @@
 interface:
   display_name: "HyperOS 规范写手"
-  short_description: "撰写、改写、迁移并完善 HyperOS 设计规范文档"
-  default_prompt: "帮我把这份 OS3 老规范更新成面向新场景的 HyperOS 设计规范文档，并输出适合 Fumadocs MDX 的 Markdown。"
+  short_description: "结合旧版规范和研发组件文档撰写 HyperOS 设计规范"
+  default_prompt: "帮我基于 HyperOS 老版本规范和研发组件文档，更新成面向新场景的 HyperOS 设计规范文档，并输出适合 Fumadocs MDX 的 Markdown。"
