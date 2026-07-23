@@ -4,9 +4,9 @@
 
 它适合处理这类任务：
 
+- 以鸿蒙（HarmonyOS）设计规范为参照，仿写、改写为 HyperOS 规范（禁止与鸿蒙原文类同）
 - 将 OS3 或更早版本的设计规范更新为新的 HyperOS 场景规范
-- 为组件、页面、交互、视觉、系统行为撰写规范文档
-- 从旧规范中保留仍然有效的设计意图，并标记新增、调整、废弃规则
+- 为组件、页面、交互、视觉、系统行为撰写规范正文
 - 结合研发组件文档校准组件能力、状态、限制和平台差异
 - 按需引用组件原则库，避免在单篇规范中堆入无关原则
 - 输出标准 Markdown，方便后续渲染到 Fumadocs / MDX 文档站
@@ -54,17 +54,20 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py ~/.codex
 在 Codex 中直接提出类似请求：
 
 ```text
-使用 hyperos-design-spec-writer，把下面这份 OS3 老规范更新为 HyperOS 新场景规范，输出 Fumadocs 可渲染的 Markdown。
+使用 hyperos-design-spec-writer，基于下面的鸿蒙设计规范与 OS3 老规范，仿写为 HyperOS 新场景规范正文。
 ```
 
 推荐输入包含：
 
-1. 旧规范原文
-2. 研发组件文档
-3. 新 HyperOS 场景
-4. 目标组件或页面
-5. 已知 token、尺寸、状态或平台约束
-6. 是否需要 MDX frontmatter
+1. **鸿蒙设计规范**（URL 或正文二选一；仅作撰写输入，不写入正文）
+2. HyperOS / OS3 旧规范原文
+3. 研发组件文档
+4. 新 HyperOS 场景
+5. 目标组件或页面
+6. 已知 token、尺寸、状态或平台约束
+7. 是否需要 MDX frontmatter
+
+未提供鸿蒙设计规范（URL 与正文皆无）时，Skill 不应直接撰写完整规范正文。
 
 写具体组件规范时，Skill 会按需读取 `skill/references/component-principles.md` 中对应组件或分类的原则；如果没有匹配条目，则使用分类原则兜底并标记为 `待确认`。
 
@@ -72,11 +75,15 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py ~/.codex
 
 - 默认使用中文
 - 使用 `应`、`不应`、`建议`、`可` 等规范性表达
-- 不强行套用所有章节，只保留对当前规范有价值的结构
+- 以鸿蒙为参照做仿写/改写，不照搬、不类同鸿蒙原文结构与措辞
+- 正文不写过程说明、草案声明、参照来源表、迁移表、QA、更改日志
+- 默认不输出：使用指南、内容与文案、动效规范
+- 默认骨架：概述 → 类型与结构 → 交互与状态 → 视觉规格（材质 / 组件规格）→ 多端设计指南
+- 原则写入概述；不单独输出核心原则、变体详解、待确认等旧章节
 - 不把整份组件原则库塞进正文，只引用当前组件需要的原则
 - 不凭空编造精确 token、间距、动效曲线或平台 API
 - 不把研发 API、类名或内部实现直接写成设计规则
-- 对缺失但关键的信息，集中放入 `待确认`
+- 资料缺口在对话中说明，默认不写进正文专章
 
 ## 维护建议
 
@@ -86,3 +93,4 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py ~/.codex
 - 修改可复制文档骨架时，更新 `templates/hyperos-spec-template.mdx`
 - 每次修改后运行 `quick_validate.py` 验证 Skill 基本格式
 - 产出新的规范版本时，放入 `specs/` 并在需要时同步 README 的目录说明
+- 行为变更后执行 `rsync -a --delete ./skill/ ~/.codex/skills/hyperos-design-spec-writer/` 同步安装副本
