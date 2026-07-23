@@ -4,7 +4,7 @@
 
 它适合处理这类任务：
 
-- 以鸿蒙（HarmonyOS）设计规范为参照，仿写、改写为 HyperOS 规范（禁止与鸿蒙原文类同）
+- 以鸿蒙（HarmonyOS）设计规范为参照，贴近其表述风格并做适当改写润色，产出 HyperOS 规范
 - 将 OS3 或更早版本的设计规范更新为新的 HyperOS 场景规范
 - 为组件、页面、交互、视觉、系统行为撰写规范正文
 - 结合研发组件文档校准组件能力、状态、限制和平台差异
@@ -54,7 +54,7 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py ~/.codex
 在 Codex 中直接提出类似请求：
 
 ```text
-使用 hyperos-design-spec-writer，基于下面的鸿蒙设计规范与 OS3 老规范，仿写为 HyperOS 新场景规范正文。
+使用 hyperos-design-spec-writer，基于下面的鸿蒙设计规范与 OS3 老规范，写成 HyperOS 新场景规范正文（表述可贴近鸿蒙风格，适当改写润色）。
 ```
 
 推荐输入包含：
@@ -75,7 +75,7 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py ~/.codex
 
 - 默认使用中文
 - 使用 `应`、`不应`、`建议`、`可` 等规范性表达
-- 以鸿蒙为参照做仿写/改写，不照搬、不类同鸿蒙原文结构与措辞
+- 以鸿蒙为参照：表述与语气可贴近华为原文，做适当改写润色，避免逐字照搬；一级结构仍用五章骨架
 - 正文不写过程说明、草案声明、参照来源表、迁移表、QA、更改日志
 - 默认不输出：使用指南、内容与文案、动效规范
 - 默认骨架：概述 → 类型与结构 → 交互与状态 → 视觉规格（材质 / 组件规格）→ 多端设计指南

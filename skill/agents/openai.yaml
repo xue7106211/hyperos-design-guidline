@@ -1,4 +1,4 @@
 interface:
   display_name: "HyperOS 规范写手"
-  short_description: "以鸿蒙为参照，按五章骨架仿写 HyperOS 规范"
-  default_prompt: "帮我基于鸿蒙设计规范（请提供 URL 或正文）仿写 HyperOS 设计规范，结构为：概述、类型与结构、交互与状态、视觉规格（材质/组件规格）、多端设计指南；紧凑换行便于贴飞书。"
+  short_description: "以鸿蒙为参照，贴近其表述风格润色为 HyperOS 规范"
+  default_prompt: "帮我基于鸿蒙设计规范（请提供 URL 或正文）撰写 HyperOS 设计规范：表述可贴近鸿蒙风格并适当改写润色；结构为概述、类型与结构、交互与状态、视觉规格（材质/组件规格）、多端设计指南；紧凑换行便于贴飞书。"
