@@ -28,7 +28,13 @@
 ├── specs/                         # 已产出的规范草稿与版本记录
 │   ├── drawer-floating-window-v1.md
 │   ├── drawer-floating-window-v2.md
-│   └── drawer-floating-window-v3.md
+│   ├── drawer-floating-window-v3.md
+│   ├── drawer-floating-window-v4.md
+│   ├── drawer-floating-window-v5.md
+│   ├── list-v1.md
+│   ├── list-v2.md                 # 用户评审版本
+│   ├── list-v2-assets/            # list-v2 图片附件
+│   └── list.md
 └── README.md
 ```
 
